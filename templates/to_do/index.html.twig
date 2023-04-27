@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ToDoController!{% endblock %}
+
+{% block style %}
+h1 {color: blue;}
+{% endblock %}
+
+{% block body %}
+<h1 class='header'>  To Do Project <h1>
+<br>
+<br>
+<form method="POST" action={{path('create_task')}}>
+<input type="text" placeholder="Task Title">
+<button type="submit"> Add Task</button>
+</form>
+{% endblock %}
