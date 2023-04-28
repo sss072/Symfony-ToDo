@@ -24,11 +24,11 @@ WORKDIR /Symfony-ToDo
 # Install Composer dependencies
 RUN composer install
 
-# Create the database
-CMD ["php", "bin/console doctrine:database:create"]
+# Copy the entrypoint script into the container
+COPY entrypoint.sh /entrypoint.sh
 
-# Start the web server
-CMD ["php", "-S", "0.0.0.0:8000", "-t", "public"]
+# Execute the entrypoint script
+CMD ["/entrypoint.sh"]
 
 # Expose port 8000 for web access
 EXPOSE 8000
