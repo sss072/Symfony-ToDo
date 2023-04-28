@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
     libpq-dev \
     libzip-dev \
     unzip \
-    zip
+    zip \
+    ncat
 
 # Configure and install php extensions
 RUN docker-php-ext-configure intl && \
@@ -24,11 +25,8 @@ WORKDIR /Symfony-ToDo
 # Install Composer dependencies
 RUN composer install
 
-# Copy the entrypoint script into the container
-COPY entrypoint.sh /entrypoint.sh
-
 # Execute the entrypoint script
-CMD ["/entrypoint.sh"]
+ENTRYPOINT ["./entrypoint.sh"]
 
 # Expose port 8000 for web access
 EXPOSE 8000
