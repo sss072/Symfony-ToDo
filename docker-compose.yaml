@@ -5,8 +5,6 @@ services:
     build: 
       context: ./db
       dockerfile: Dockerfile
-    ports: 
-      - "3307:3306"
     networks:
       - todo-network
     container_name: db
@@ -22,4 +20,3 @@ services:
 
 networks:
   todo-network:
-    driver: bridge
