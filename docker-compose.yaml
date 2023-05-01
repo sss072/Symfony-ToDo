@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  db:
+    build: 
+      context: ./db
+      dockerfile: Dockerfile
+    networks:
+      - todo-network
+    container_name: db
+  todo:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports: 
+      - "80:8000"
+    depends_on:
+      - db
+    networks:
+      - todo-network
+
+networks:
+  todo-network:
