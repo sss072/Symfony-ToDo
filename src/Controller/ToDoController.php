@@ -19,5 +19,17 @@ class ToDoController extends AbstractController
     {
         exit('to do: create a new task!');
     }
+
+    #[Route('/tailwind/test', name: 'tailwind_test')]
+    public function tailwindTest(): Response
+    {
+        return $this->render('tailwind/test.html.twig');
+    }
+
+    #[Route('/tailwind/playground', name: 'tailwind_playground')]
+    public function tailwindPlayground(): Response
+    {
+        return $this->render('tailwind/playground.html.twig');
+    }
 }
     
